@@ -5,7 +5,7 @@ from datetime import datetime
 
 class Database():
     def __init__(self) -> None:
-        self.db = connect('demo.db')
+        self.db = connect('cinema.db')
         self.cursor = self.db.cursor()
 
         self.tableMoney = """CREATE TABLE money(
@@ -83,11 +83,11 @@ class Database():
                             """
 
     def createTables(self):
-        #self.cursor.execute(self.tableCreate)
-        #self.cursor.execute(self.tableLoto)
-        #self.cursor.execute(self.tableJustClicked)
-        #self.cursor.execute(self.tableCinemaPaid)
-        #self.cursor.execute(self.tableMoney)
+        self.cursor.execute(self.tableCreate)
+        self.cursor.execute(self.tableLoto)
+        self.cursor.execute(self.tableJustClicked)
+        self.cursor.execute(self.tableCinemaPaid)
+        self.cursor.execute(self.tableMoney)
         self.cursor.execute(self.tableCinema)
         self.cursor.execute("INSERT OR IGNORE INTO money(id, sum) VALUES (1, 0)")
         self.db.commit()

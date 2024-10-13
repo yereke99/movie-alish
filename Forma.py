@@ -18,6 +18,7 @@ import time
 from traits import*
 from config import*
 import os
+from aiogram.types import InputMediaPhoto
 
 generator = Generator()
 btn = Button()
@@ -25,6 +26,10 @@ db = Database()
 
 # Dont touch!
 #file_id = "BAACAgIAAxkBAAIBfmZVvFgHXNy6dEjDe2rDHuGlC3jrAALaTQAC1jOpSiMaJlO20CwKNQQ"  
+
+c1 = "AgACAgIAAxkBASddQ2cLlcAGjq_AyLHvXJNNwipfYzpHAAK_4zEbPuNYSGs0z-2J-aW2AQADAgADeQADNgQ"
+c2 = "AgACAgIAAxkBASddRWcLlcQlAtsjH2-9ablaWcdjT4qfAALA4zEbPuNYSDcGPMruEaLCAQADAgADeQADNgQ"
+c3 = "AgACAgIAAxkBASddR2cLlccAAV1aHhE3jeObAAHMyKOWpI8AAsHjMRs-41hI93hvf9cBMdcBAAMCAAN5AAM2BA"
 
 # Ensure the directory exists
 os.makedirs('./pdf/', exist_ok=True)
@@ -74,6 +79,33 @@ async def handler(message: types.Message, state: FSMContext):
 
         async with state.proxy() as data:
             data['sum'] = sum
+        
+        media = [
+            InputMediaPhoto(
+                media=c1,
+                parse_mode="Markdown",
+                protect_content=True
+            ),
+            InputMediaPhoto(
+                media=c2,
+                parse_mode="Markdown",
+                protect_content=True
+            ),
+            InputMediaPhoto(
+                media=c3,
+                parse_mode="Markdown",
+                protect_content=True
+            ),
+        ]
+
+        # Отправляем медиафайлы как альбом
+        await bot.send_media_group(
+            chat_id=message.from_user.id,
+            media=media,
+            protect_content=True
+        )
+
+        
 
         with open("./im/example.jpg", 'rb') as photo:
             await bot.send_photo(
@@ -89,6 +121,7 @@ async def handler(message: types.Message, state: FSMContext):
             parse_mode="Markdown",
             reply_markup=btn.payment()
         ) 
+        
     except Exception as e:
         print(e) 
         await Forma.s1.set()
