@@ -18,7 +18,7 @@ import time
 from traits import*
 from config import*
 import os
-from aiogram.types import InputMediaPhoto
+from aiogram.types import InputMediaPhoto, InputMediaVideo
 
 generator = Generator()
 btn = Button()
@@ -27,9 +27,9 @@ db = Database()
 # Dont touch!
 #file_id = "BAACAgIAAxkBAAIBfmZVvFgHXNy6dEjDe2rDHuGlC3jrAALaTQAC1jOpSiMaJlO20CwKNQQ"  
 
-c1 = "AgACAgIAAxkBASddQ2cLlcAGjq_AyLHvXJNNwipfYzpHAAK_4zEbPuNYSGs0z-2J-aW2AQADAgADeQADNgQ"
-c2 = "AgACAgIAAxkBASddRWcLlcQlAtsjH2-9ablaWcdjT4qfAALA4zEbPuNYSDcGPMruEaLCAQADAgADeQADNgQ"
-c3 = "AgACAgIAAxkBASddR2cLlccAAV1aHhE3jeObAAHMyKOWpI8AAsHjMRs-41hI93hvf9cBMdcBAAMCAAN5AAM2BA"
+c1 = "AgACAgIAAxkBAANWZwwJYx-Mxdz3bXT4SEukEgbkHqAAApLoMRtMEGBIAaRM4RDIKicBAAMCAAN5AAM2BA"
+c2 = "AgACAgIAAxkBAANYZwwJblyv3nn33IDsvzbY41kaou0AApPoMRtMEGBISmkPOlWJvHkBAAMCAAN5AAM2BA"
+c3 = "AgACAgIAAxkBAANaZwwJc-A2en9d9y52-fu4_ndBK-IAApToMRtMEGBIjBLpA2fvgIUBAAMCAAN5AAM2BA"
 
 # Ensure the directory exists
 os.makedirs('./pdf/', exist_ok=True)
@@ -83,6 +83,18 @@ async def handler(message: types.Message, state: FSMContext):
         media = [
             InputMediaPhoto(
                 media=c1,
+                caption="""*Инструкция:
+
+Оплата жасау үшін сілтемеге өтіңіз: https://pay.kaspi.kz/pay/0wdcrpat
+Мұнде міндетті түрде 2000 теңге төлену керек. Басқа сумма төлеп қойсаңыз, бот оқымайды және ақшаңыз қайтпайды. Қателеспей төлеңіз!
+
+1. Төлем жасап болған соң чекті ПДФ файл арқылы жіберіңіз( фотода көрсетілгендей)
+
+2. Төленетін сумма 2000 теңгенің біреуі болу керек
+
+3. Төлем өткен соң бот сізге киноға билет нөмеріңізбен, киноларды жібереді
+
+ПДФ файлымен чекті төменге жіберіңіз  👇*""",
                 parse_mode="Markdown",
                 protect_content=True
             ),
@@ -106,15 +118,6 @@ async def handler(message: types.Message, state: FSMContext):
         )
 
         
-
-        with open("./im/example.jpg", 'rb') as photo:
-            await bot.send_photo(
-            message.from_user.id,
-            photo=photo,
-            caption="Төлем жасаған соң чекті 📲 .pdf форматында ПОДЕЛИТЬСЯ түймесін баса отыра ботқа жіберіңіз!\n\n*НАЗАР АУДАРЫҢЫЗ ЧЕКТІ МОДЕРАТОР ТЕКСЕРЕДІ\n\n ЕСКЕРТУ ❗️\nЖАЛҒАН ЧЕК ЖІБЕРУ НЕМЕСЕ БАСҚАДА ДҰЫРЫС ЕМЕС ЧЕКТЕР ЖІБЕРУ АВТОМАТТЫ ТҮРДЕ ҰТЫС ОЙЫННАН ШЫҒАРЫЛАДЫ*",
-            parse_mode="Markdown",
-            reply_markup=btn.cancel()
-        )
         await bot.send_message(
             message.from_user.id,
             text="*Kaspi Pay - төлем жүйесін қолдана отыра 💳 төлем жасаңыз\nКиноның 💳 бағасы: %d теңге*"%sum,
@@ -184,7 +187,7 @@ async def handler(message: types.Message, state: FSMContext):
         
         print(data['pdf_result'][4])
 
-        if data['pdf_result'][4] == "Сатушының ЖСН/БСН 801206401034" or data['pdf_result'][4] == "ИИН/БИН продавца 801206401034" or data['pdf_result'][4] == "БСН 980709401418" or data['pdf_result'][4] == "БИН 980709401418" or data['pdf_result'][4] == "БСН 840901401245" or data['pdf_result'][4] == "БИН 840901401245" or  data['pdf_result'][4] == "БСН 801206401034":
+        if data['pdf_result'][4] == "Сатушының ЖСН/БСН 011225600097" or data['pdf_result'][4] == "ИИН/БИН продавца 011225600097":
         
             if db.CheckLoto(data['pdf_result'][3]) == True:
                 await bot.send_message(
@@ -233,7 +236,8 @@ async def handler(message: types.Message, state: FSMContext):
 
     async with state.proxy() as data:
         data['contact'] = message.contact.phone_number
-    file_id = "BAACAgIAAxkBAAIBfmZVvFgHXNy6dEjDe2rDHuGlC3jrAALaTQAC1jOpSiMaJlO20CwKNQQ"   
+    
+    
     db.increase_money(data['sum'])
 
     if db.InsertClient(message.from_user.id, message.from_user.username,  data['contact'], datetime.now(), "paid", "true"):
@@ -252,12 +256,29 @@ async def handler(message: types.Message, state: FSMContext):
                 time_now,
             )
 
-        
-        await bot.send_video(
-            message.from_user.id,
-            file_id, 
-            parse_mode="Markdown", 
-            protect_content=True,
+        cinema_capture = "AgACAgIAAxkBAAMDZwu5bJkie-LmBieNdYsb2WsAAbWhAAKC4zEbTBBYSKkYXEW7TWtIAQADAgADeQADNgQ"
+        cinema = "BAACAgIAAxkBAAMlZwvK9ncWSMW-pm9U7dYOSBiKrEUAAuFdAAJMEGBIJf2Hf71qUTI2BA"
+
+        # Создаем список медиафайлов для отправки
+        media = [
+            InputMediaPhoto(
+                media=cinema_capture,
+                parse_mode="Markdown",
+                protect_content=True
+            ),
+            InputMediaVideo(
+                media=cinema,
+                caption="*Хотя Бы Кинода 3*",  # Если нужно добавить подпись
+                parse_mode="Markdown",
+                protect_content=True
+            ),
+        ]
+
+        # Отправляем медиафайлы как альбом
+        await bot.send_media_group(
+            chat_id=message.from_user.id,
+            media=media,
+            protect_content=True
         )
 
         await bot.send_message(

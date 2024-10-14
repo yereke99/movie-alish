@@ -113,7 +113,7 @@ async def start_handler(message: types.Message):
     print(message.from_user.id)
       
     from datetime import datetime
-    fileId = "AgACAgIAAxkBAAMDZwu5bJkie-LmBieNdYsb2WsAAbWhAAKC4zEbTBBYSKkYXEW7TWtIAQADAgADeQADNgQ"
+    fileId = "AgACAgIAAxkBAANcZwwL-emYUtwEKC8tOLtMa93tOnMAAqfoMRtMEGBILbrCi2y-dy4BAAMCAAN5AAM2BA"
 
     user_id = message.from_user.id
     user_name = f"@{message.from_user.username}"
@@ -127,7 +127,7 @@ async def start_handler(message: types.Message):
             fileId,
             caption="""*Ассалаумағалейкум, бұл менің яғни Рамазан Амантайдың “Хотя бы кинода 3” фильмін жоғарғы сапада көруіңіз үшін ашылған ресми телеграм бот!✔️
 
-“Хотя бы кинода 3” -  фильмін көргеніңіз үшін Алматы қаласынан 2 бөлмелі камфорт класстағы квартираны, 4 көлікті және 50 адамға 100 мың теңгеден сыйламақшымын! Киномды көру үшін “КИНОНЫ САТЫП АЛУ” кнопкасын басыңыз.  Киномды көрмей тұрып алдымен мына бір видеоны көріп алыңыз. 
+“Хотя бы кинода 3” -  фильмін көргеніңіз үшін Алматы қаласынан 2 бөлмелі камфорт класстағы квартираны, 4 көлікті және 50 адамға 100 мың теңгеден сыйламақшымын! Киномды көру үшін “КИНОНЫ САТЫП АЛУ” кнопкасын басыңыз. 
 
 Сәттілік жолдасыңыз болсын, қолдау білдіріп жатқаныңызға рахмет көрерменім!✊🏻*""",
             parse_mode="Markdown",
@@ -141,7 +141,7 @@ async def start_handler(message: types.Message):
         fileId,
         caption="""*Ассалаумағалейкум, бұл менің яғни Рамазан Амантайдың “Хотя бы кинода 3” фильмін жоғарғы сапада көруіңіз үшін ашылған ресми телеграм бот!✔️
 
-“Хотя бы кинода 3” -  фильмін көргеніңіз үшін Алматы қаласынан 2 бөлмелі камфорт класстағы квартираны, 4 көлікті және 50 адамға 100 мың теңгеден сыйламақшымын! Киномды көру үшін “КИНОНЫ САТЫП АЛУ” кнопкасын басыңыз.  Киномды көрмей тұрып алдымен мына бір видеоны көріп алыңыз. 
+“Хотя бы кинода 3” -  фильмін көргеніңіз үшін Алматы қаласынан 2 бөлмелі камфорт класстағы квартираны, 4 көлікті және 50 адамға 100 мың теңгеден сыйламақшымын! Киномды көру үшін “КИНОНЫ САТЫП АЛУ” кнопкасын басыңыз. 
 
 Сәттілік жолдасыңыз болсын, қолдау білдіріп жатқаныңызға рахмет көрерменім!✊🏻*""",        
         parse_mode="Markdown",
@@ -193,12 +193,13 @@ async def handler(message: types.Message):
         reply_markup=btn.cancel()
     ) 
 
+@dp.message_handler(commands=['help'])
 @dp.message_handler(Text(equals="📲 Байланыс номері"), content_types=['text'])
 async def handler(message: types.Message):
 
     await bot.send_message(
         message.from_user.id,
-        text="""*https://wa.me/77088609319*""",
+        text="""*https://wa.me/77008230101*""",
         parse_mode="Markdown",
     ) 
 
@@ -250,7 +251,7 @@ async def handler(message: types.Message):
 
     await bot.send_message(
         message.from_user.id,
-        text="""*@senior_coffee_drinker*\n\nhttps://wa.me/77088609319""",
+        text="""*@senior_coffee_drinker*\n\nhttps://wa.me/77008230101""",
         parse_mode="Markdown",
     ) 
 
@@ -353,42 +354,27 @@ async def handler(message: types.Message):
         reply_markup=btn.menu()
     )
 
+
+
+
+@dp.message_handler(commands=['cinema'])
 @dp.message_handler(Text(equals="🎞 Movie"), content_types=['text'])
 async def handler(message: types.Message):
 
-    #file_id = "BAACAgIAAxkBAAIBfmZVvFgHXNy6dEjDe2rDHuGlC3jrAALaTQAC1jOpSiMaJlO20CwKNQQ" 
+    if message.from_user.id == admin:
+        cinema_capture = "AgACAgIAAxkBAAMDZwu5bJkie-LmBieNdYsb2WsAAbWhAAKC4zEbTBBYSKkYXEW7TWtIAQADAgADeQADNgQ"
+        cinema = "BAACAgIAAxkBAAMlZwvK9ncWSMW-pm9U7dYOSBiKrEUAAuFdAAJMEGBIJf2Hf71qUTI2BA"
 
-    first_cinema = "BAACAgIAAxkBAAHqn9lmzCTjZas-7lUDgSY-FAABVIBF21cAAjpVAAIxrGFKi6XARXI2nR41BA"
-    first_cinema_capture = "AgACAgIAAxkBASdb7GcKcw20i5aHGWWkJBPdDGc12jvwAAIu6DEbPuNQSIpk6HwOkVkDAQADAgADeQADNgQ"
-    second_cinema = "BAACAgIAAxkBASda6WcIS_yHWb_bwzZo5V4CeZmuv7q8AALMYAACk7FASPPlcDfP8X8pNgQ"   
-    second_cinema_capture = "AgACAgIAAxkBASdb9WcKc60b1MHOHWv69MMcrK6nLUNAAAIy6DEbPuNQSDE5Z0PB-E0TAQADAgADeQADNgQ"
-   
-
-    if db.CheckUserPaid(message.from_user.id) == True:
         # Создаем список медиафайлов для отправки
         media = [
             InputMediaPhoto(
-                media=first_cinema_capture,
-                caption="*Zero*",
+                media=cinema_capture,
                 parse_mode="Markdown",
                 protect_content=True
             ),
             InputMediaVideo(
-                media=first_cinema,
-                caption="*Zero*",  # Если нужно добавить подпись
-                parse_mode="Markdown",
-                protect_content=True
-            ),
-            
-            InputMediaPhoto(
-                media=second_cinema_capture,
-                caption="*Баска вариянт жок*",  # Если нужно добавить подпись
-                parse_mode="Markdown",
-                protect_content=True
-            ),
-            InputMediaVideo(
-                media=second_cinema,
-                caption="*Баска вариянт жок*",  # Если нужно добавить подпись
+                media=cinema,
+                caption="*Хотя Бы Кинода 3*",  # Если нужно добавить подпись
                 parse_mode="Markdown",
                 protect_content=True
             ),
@@ -400,6 +386,42 @@ async def handler(message: types.Message):
             media=media,
             protect_content=True
         )
+        return
+
+    if db.CheckUserPaid(message.from_user.id) == True:
+        cinema_capture = "AgACAgIAAxkBAAMDZwu5bJkie-LmBieNdYsb2WsAAbWhAAKC4zEbTBBYSKkYXEW7TWtIAQADAgADeQADNgQ"
+        cinema = "BAACAgIAAxkBAAMlZwvK9ncWSMW-pm9U7dYOSBiKrEUAAuFdAAJMEGBIJf2Hf71qUTI2BA"
+
+        # Создаем список медиафайлов для отправки
+        media = [
+            InputMediaPhoto(
+                media=cinema_capture,
+                parse_mode="Markdown",
+                protect_content=True
+            ),
+            InputMediaVideo(
+                media=cinema,
+                caption="*Хотя Бы Кинода 3*",  # Если нужно добавить подпись
+                parse_mode="Markdown",
+                protect_content=True
+            ),
+        ]
+
+        # Отправляем медиафайлы как альбом
+        await bot.send_media_group(
+            chat_id=message.from_user.id,
+            media=media,
+            protect_content=True
+        )
+    
+    
+    
+    await bot.send_message(
+        message.from_user.id,
+        text="Кино сатып алыңыз.",
+        reply_markup=btn.buy_cinema()
+    )
+    
 
 
 @dp.message_handler(Text(equals="🎁 Сыйлықтар"), content_types=['text'])
