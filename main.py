@@ -199,7 +199,7 @@ async def handler(message: types.Message):
 
     await bot.send_message(
         message.from_user.id,
-        text="""*https://wa.me/77008230101*""",
+        text="""*https://wa.me/77478232725*""",
         parse_mode="Markdown",
     ) 
 
@@ -353,8 +353,6 @@ async def handler(message: types.Message):
         parse_mode="Markdown",
         reply_markup=btn.menu()
     )
-
-
 
 
 @dp.message_handler(commands=['cinema'])

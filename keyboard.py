@@ -53,7 +53,7 @@ class Button:
        ])
     
     def digits_and_cancel(self):
-        buttons = [str(i) for i in range(1, 4)] + ["🔕 Бас тарту"]
+        buttons = [str(i) for i in range(1, 10)] + ["🔕 Бас тарту"]
         return self._create_keyboard(buttons)
     
     def menu_not_paid(self):
