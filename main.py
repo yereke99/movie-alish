@@ -199,7 +199,7 @@ async def handler(message: types.Message):
 
     await bot.send_message(
         message.from_user.id,
-        text="""*https://wa.me/77478232725*""",
+        text="""*https://wa.me/87086914391*""",
         parse_mode="Markdown",
     ) 
 
@@ -251,7 +251,7 @@ async def handler(message: types.Message):
 
     await bot.send_message(
         message.from_user.id,
-        text="""*@senior_coffee_drinker*\n\nhttps://wa.me/77008230101""",
+        text="""*@senior_coffee_drinker*\n\nhttps://wa.me/77086914391""",
         parse_mode="Markdown",
     ) 
 

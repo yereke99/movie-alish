@@ -53,13 +53,13 @@ async def send_message(chat_id, file_id, file_type, caption):
             sanitized_caption = caption
 
         if file_type == 'photo':
-            await bot.send_photo(chat_id, file_id, caption=sanitized_caption, protect_content=True, parse_mode="MarkdownV2", reply_markup=btn.again())
+            await bot.send_photo(chat_id, file_id, caption=sanitized_caption, protect_content=True, parse_mode="MarkdownV2", reply_markup=btn.buy_cinema())
         elif file_type == 'video':
-            await bot.send_video(chat_id, file_id, caption=sanitized_caption, protect_content=True, parse_mode="MarkdownV2", reply_markup=btn.again())
+            await bot.send_video(chat_id, file_id, caption=sanitized_caption, protect_content=True, parse_mode="MarkdownV2", reply_markup=btn.buy_cinema())
         elif file_type == 'document':
-            await bot.send_document(chat_id, file_id, caption=sanitized_caption, protect_content=True, parse_mode="MarkdownV2", reply_markup=btn.again())
+            await bot.send_document(chat_id, file_id, caption=sanitized_caption, protect_content=True, parse_mode="MarkdownV2", reply_markup=btn.buy_cinema())
         elif file_type == 'video_note':
-            await bot.send_video_note(chat_id, file_id, protect_content=True, reply_markup=btn.again())
+            await bot.send_video_note(chat_id, file_id, protect_content=True, reply_markup=btn.buy_cinema())
         elif file_type == 'voice':
             await bot.send_voice(chat_id, file_id, caption=sanitized_caption, protect_content=True, parse_mode="MarkdownV2")
         elif file_type == 'text':
@@ -73,13 +73,13 @@ async def send_message(chat_id, file_id, file_type, caption):
         # If the caption is empty or incorrectly formatted, send without parse_mode
         try:
             if file_type == 'photo':
-                await bot.send_photo(chat_id, file_id, protect_content=True, caption=caption, reply_markup=btn.again())
+                await bot.send_photo(chat_id, file_id, protect_content=True, caption=caption, reply_markup=btn.buy_cinema())
             elif file_type == 'video':
-                await bot.send_video(chat_id, file_id, protect_content=True, caption=caption, parse_mode="Markdown", reply_markup=btn.again())
+                await bot.send_video(chat_id, file_id, protect_content=True, caption=caption, parse_mode="Markdown", reply_markup=btn.buy_cinema())
             elif file_type == 'document':
-                await bot.send_document(chat_id, file_id,  protect_content=True, caption=caption, reply_markup=btn.again())
+                await bot.send_document(chat_id, file_id,  protect_content=True, caption=caption, reply_markup=btn.buy_cinema())
             elif file_type == 'video_note':
-                await bot.send_video_note(chat_id, file_id, protect_content=True, reply_markup=btn.again())
+                await bot.send_video_note(chat_id, file_id, protect_content=True, reply_markup=btn.buy_cinema())
             elif file_type == 'voice':
                 await bot.send_voice(chat_id, file_id, caption=caption)
             elif file_type == 'text':
