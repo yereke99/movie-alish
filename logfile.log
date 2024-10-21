@@ -374,3 +374,7 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 Everything up-to-date
+[main ec0baa7] main: updating data
+ 2 files changed, 16 insertions(+)
+To https://github.com/yereke99/movie-alish.git
+   8948ff6..ec0baa7  main -> main
