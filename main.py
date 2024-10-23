@@ -113,7 +113,7 @@ async def start_handler(message: types.Message):
     print(message.from_user.id)
       
     from datetime import datetime
-    fileId = "AgACAgIAAxkBAANcZwwL-emYUtwEKC8tOLtMa93tOnMAAqfoMRtMEGBILbrCi2y-dy4BAAMCAAN5AAM2BA"
+    fileId = "BAACAgIAAxkBAAERIkVnGN2qm8M1mZlZhdiTfTCtdyIcegACXlwAAvUYyUg19IavCYWf6TYE"
 
     user_id = message.from_user.id
     user_name = f"@{message.from_user.username}"
@@ -122,7 +122,7 @@ async def start_handler(message: types.Message):
     db.JustInsert(user_id, user_name, time_now)  
     
     if db.CheckUserPaid(message.from_user.id) == True:
-        await bot.send_photo(
+        await bot.send_мшвущ(
             message.from_user.id,
             fileId,
             caption="""*Ассалаумағалейкум, бұл менің яғни Рамазан Амантайдың “Хотя бы кинода 3” фильмін жоғарғы сапада көруіңіз үшін ашылған ресми телеграм бот!✔️
