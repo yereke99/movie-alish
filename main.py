@@ -122,7 +122,7 @@ async def start_handler(message: types.Message):
     db.JustInsert(user_id, user_name, time_now)  
     
     if db.CheckUserPaid(message.from_user.id) == True:
-        await bot.send_мшвущ(
+        await bot.send_video(
             message.from_user.id,
             fileId,
             caption="""*Ассалаумағалейкум, бұл менің яғни Рамазан Амантайдың “Хотя бы кинода 3” фильмін жоғарғы сапада көруіңіз үшін ашылған ресми телеграм бот!✔️
@@ -136,7 +136,7 @@ async def start_handler(message: types.Message):
         )
         return
 
-    await bot.send_photo(
+    await bot.send_video(
         message.from_user.id,
         fileId,
         caption="""*Ассалаумағалейкум, бұл менің яғни Рамазан Амантайдың “Хотя бы кинода 3” фильмін жоғарғы сапада көруіңіз үшін ашылған ресми телеграм бот!✔️
