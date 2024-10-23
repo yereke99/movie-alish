@@ -12582,3 +12582,29 @@ To https://github.com/yereke99/movie-alish.git
  create mode 100644 pdf/6903691984_1729693700_56681010.pdf
 To https://github.com/yereke99/movie-alish.git
    e810e4fa..aa52912f  main -> main
+[main 41e2f423] main: updating data
+ 6 files changed, 5 insertions(+)
+ create mode 100644 pdf/1683801592_1729693758_34898421.pdf
+ create mode 100644 pdf/566732285_1729693751_71886846.pdf
+ create mode 100644 pdf/6141642406_1729693774_62736295.pdf
+ create mode 100644 pdf/880943190_1729693747_87665446.pdf
+To https://github.com/yereke99/movie-alish.git
+   aa52912f..41e2f423  main -> main
+fatal: unable to stat 'cinema.db-journal': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cinema.db
+	modified:   logfile.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	pdf/1172783497_1729693848_28772514.pdf
+	pdf/5890725749_1729693811_74702581.pdf
+	pdf/620098140_1729693852_39702099.pdf
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
