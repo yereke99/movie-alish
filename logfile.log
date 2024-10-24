@@ -19741,3 +19741,23 @@ To https://github.com/yereke99/movie-alish.git
  2 files changed, 4 insertions(+)
 To https://github.com/yereke99/movie-alish.git
    6395da85..879c1f90  main -> main
+[main cf3f2644] main: updating data
+ 2 files changed, 4 insertions(+)
+To https://github.com/yereke99/movie-alish.git
+   879c1f90..cf3f2644  main -> main
+fatal: confused by unstable object source data for ec04180cd7310a4c7252d0b7ba714fcabfdf84f4
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cinema.db
+	modified:   logfile.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	pdf/7076618184_1729776587_11464519.pdf
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
