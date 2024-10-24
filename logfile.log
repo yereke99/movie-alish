@@ -18185,3 +18185,25 @@ To https://github.com/yereke99/movie-alish.git
  create mode 100644 pdf/5906017668_1729759069_74483258.pdf
 To https://github.com/yereke99/movie-alish.git
    fc217578..1b0a6e10  main -> main
+[main a1c1330a] main: updating data
+ 3 files changed, 8 insertions(+)
+ create mode 100644 pdf/538944459_1729759138_67594165.pdf
+To https://github.com/yereke99/movie-alish.git
+   1b0a6e10..a1c1330a  main -> main
+fatal: confused by unstable object source data for 5c9767ead26fbd0f8e2107434348f825c67bdfdb
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cinema.db
+	modified:   logfile.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	pdf/1329078327_1729759167_51903057.pdf
+	pdf/932226728_1729759162_14728887.pdf
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
